@@ -59,6 +59,12 @@ bool PartitionUpdateGeneratorAndroid::
       LOG(INFO) << partition_name << " has included in payload";
       continue;
     }
+
+    if (partition_name.ends_with("_dlkm")) {
+      LOG(INFO) << "Skipping check partition: " << partition_name;
+      continue;
+    }
+
     bool is_source_dynamic = false;
     std::string source_device;
 
